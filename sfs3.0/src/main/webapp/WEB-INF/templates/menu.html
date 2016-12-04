@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Menu</title>
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+
+<body>
+
+<header id="header" class="">
+    <nav class="navbar navbar-inverse" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <img src="images/stsmlogo.png" alt="" height="60px">
+            </div>
+            <div>
+                <a class="navbar-brand" th:href="@{/index}">Sample Food Store</a>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a th:href="@{/menu(cityId=${city.id})}">Menu</a></li>
+                    <li><a th:href="@{/signout}">Sign out</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header><!-- /header -->
+
+
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <ul th:each="cuisine : ${cuisines}">
+                <div class="col-sm-4">
+                    <img th:src="@{'images/' + ${cuisine.imageName}}" width="200px" height="200px"/>
+                    <a th:href="@{/cuisine_detail(cuisineId=${cuisine.id}, cityId=${city.id})}"><p
+                            th:text="${cuisine.name}">test</p></a>
+                </div>
+            </ul>
+        </div>
+        <div class="col-md-12 column">
+            <div class="main">
+                <p th:text="${vip}"></p>
+            </div>
+        </div>
+        <div class="col-md-12 column">
+            <form th:action="@{/menu(cityId=${city.id})}" method="post" class="form-horizontal" role="form">
+                <ul th:each="cuisine : ${cuisines}">
+                    <div class="form-group">
+                        <div class="col-sm-4">
+                        </div>
+                        <div class="col-sm-4">
+                            <input class="form-control" id="inputPassword" type="text" name="cuisineName"
+                                   th:value="${cuisine.name}" readonly="readonly"/>
+                            <input class="form-control" id="inputPassword" type="hidden" name="cuisineId"
+                                   th:value="${cuisine.id}"/>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputPassword" class="col-sm-4 control-label">Amount</label>
+                        <div class="col-sm-4">
+                            <input type="number" min="0" class="form-control" id="inputPassword" name="amount"
+                                   th:value="0"/>
+                        </div>
+                    </div>
+                </ul>
+                <div class="col-sm-12">
+                    <div class="col-sm-4">
+                    </div>
+                    <div class="col-sm-4 mybtn">
+                        <input class="btn btn-success btn-lg btn-block" type="submit" value="Submit orders">
+                    </div>
+                    <div class="col-sm-4">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<footer>
+    <div class="footer-disclaimer">
+        <div class="container">
+            <div class="text-center"></div>
+            <div class="text-center text-ucase">2016 MD | USA</div>
+            <div class="text-center text-ucase">Simple&ldquo;Love&rdquo;Food。</div>
+        </div>
+    </div>
+</footer>
+</body>
+
+<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</html>

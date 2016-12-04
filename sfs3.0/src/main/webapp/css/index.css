@@ -1,0 +1,29 @@
+/*
+* @Author: QBoooogle
+* @Date:   2016-11-22 02:13:11
+* @Last Modified by:   QBoooogle
+* @Last Modified time: 2016-11-22 11:49:53
+*/
+
+
+footer {
+	margin-top: 500px;
+	background-color: rgba(0,0,0,1);
+	color:rgba(240,240,240,0.9)
+}
+
+.main {
+	margin-top: -30px;
+	//background-image: url("../images/banner.jpg");
+	//background-color: rgb(22,22,22);
+}
+.container {
+
+    //background-color: rgb(122,122,122);
+}
+.clearfix {
+	padding-top: 20px;
+}
+.page-header {
+	padding-top: 40px;
+}

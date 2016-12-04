@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Order</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/order.css">
+</head>
+
+<body>
+
+<header id="header" class="">
+    <nav class="navbar navbar-inverse" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <img src="images/stsmlogo.png" alt="" height="60px">
+            </div>
+            <div>
+                <a class="navbar-brand" th:href="@{/index}">Sample Food Store</a>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a th:href="@{/index}">Home</a></li>
+                    <li><a th:href="@{/signout}">Sign out</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header><!-- /header -->
+
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <ul th:each="orderline : ${orderlines}" class="list-group">
+                <li class="list-group-item">
+                    <p th:text="${'Cuisine: ' + orderline.cuisine.name}"></p>
+                    <p th:text="${'Amount: ' + orderline.amount}"></p>
+                    <p th:text="${'Total Price: ' + orderline.purchasePrice}"></p>
+                </li>
+            </ul>
+            <p class="col-md-6">Order successfully! return to
+                <a th:href="@{/index}">Home</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-disclaimer">
+        <div class="container">
+            <div class="text-center"></div>
+            <div class="text-center text-ucase">2016 MD | USA</div>
+            <div class="text-center text-ucase">Simple&ldquo;Love&rdquo;Food。</div>
+        </div>
+    </div>
+</footer>
+</body>
+
+
+<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</html>

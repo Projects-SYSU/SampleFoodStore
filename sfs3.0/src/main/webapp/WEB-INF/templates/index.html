@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Sample Food Store</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+
+    <header id="header" class="">
+        <nav class="navbar navbar-inverse" role="navigation">
+            <div class="container-fluid">
+            <div class="navbar-header">
+                <img src="images/stsmlogo.png" alt="" height="60px">
+            </div>
+            <div>
+                <a class="navbar-brand" th:href="@{/index}">Sample Food Store</a>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a th:href="@{/signout}">Sign out</a></li>
+                </ul>
+            </div>
+            </div>
+        </nav>
+    </header><!-- /header -->
+
+    <div class = "main">
+        <div class="container">
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+                    <div class="page-header">
+                        <ul th:each="city : ${cities}" class="list-group">
+                            <li class="list-group-item"><a th:text="${city.name}" th:href="@{/menu(cityId=${city.id})}">New York</a></li>
+                            <ul th:each="cuisine : ${city.cuisines}">
+                                <li th:text="${cuisine.name}"></li>
+                            </ul>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-12 column">
+                <div class="row clearfix">
+                    <div class="col-md-8 column">
+                        <dl>
+                            <dt>
+                                Description lists
+                            </dt>
+                            <dd>
+                                A description list is perfect for defining terms.
+                            </dd>
+                            <dt>
+                                Euismod
+                            </dt>
+
+                        </dl>
+                    </div>
+                    <div class="col-md-4 column">
+                        <dl>
+                            <dt>
+                                Description lists
+                            </dt>
+                            <dd>
+                                A description list is perfect for defining terms.
+                            </dd>
+                            <dt>
+                                Euismod
+                            </dt>
+
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+<footer>
+    <div class="footer-disclaimer">
+            <div class="container">
+                <div class="text-center"></div>
+                <div class="text-center text-ucase">2016 MD | USA</div>
+                <div class="text-center text-ucase">Simple&ldquo;Love&rdquo;Food。</div>
+            </div>
+        </div>
+</footer>
+
+</div>
+
+
+
+
+</body>
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</html>
