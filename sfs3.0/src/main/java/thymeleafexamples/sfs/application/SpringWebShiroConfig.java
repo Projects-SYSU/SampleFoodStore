@@ -1,5 +1,8 @@
 package thymeleafexamples.sfs.application;
 
+import org.apache.shiro.codec.Base64;
+import org.apache.shiro.web.mgt.CookieRememberMeManager;
+import org.apache.shiro.web.servlet.SimpleCookie;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -44,9 +47,10 @@ public class SpringWebShiroConfig {
   }
 
   @Bean
-  public DefaultWebSecurityManager securityManager(final CustomerRealm customerRealm) {
+  public DefaultWebSecurityManager securityManager(final CustomerRealm customerRealm, final CookieRememberMeManager rememberMeManager) {
     final DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
     securityManager.setRealm(customerRealm);
+    securityManager.setRememberMeManager(rememberMeManager);
     return securityManager;
   }
 
@@ -65,6 +69,7 @@ public class SpringWebShiroConfig {
     shiroFilter.setLoginUrl("/signin");
     Map<String, String> filterChainDefinitionMap = new HashMap<String, String>();
     filterChainDefinitionMap.put("/signup", "anon");
+    filterChainDefinitionMap.put("/", "authc");
     filterChainDefinitionMap.put("/signin", "anon");
     filterChainDefinitionMap.put("/index", "authc");
     filterChainDefinitionMap.put("/menu", "authc");
@@ -76,5 +81,29 @@ public class SpringWebShiroConfig {
   @Bean
   public static LifecycleBeanPostProcessor lifecycleBeanPostProcessor() {
     return new LifecycleBeanPostProcessor();
+  }
+
+  @Bean(name = "sessionIdCookie")
+  public SimpleCookie sessionIdCookie() {
+      SimpleCookie simpleCookie = new SimpleCookie("sid");
+      simpleCookie.setHttpOnly(true);
+      simpleCookie.setMaxAge(1);
+      return simpleCookie;
+  }
+
+  @Bean(name = "rememberMeCookie")
+  public SimpleCookie rememberMeCookie() {
+      SimpleCookie simpleCookie = new SimpleCookie("rememberMe");
+      simpleCookie.setMaxAge(30);
+      simpleCookie.setHttpOnly(true);
+      return simpleCookie;
+  }
+
+  @Bean
+  public CookieRememberMeManager rememberMeManager(final SimpleCookie rememberMeCookie) {
+      CookieRememberMeManager rememberMeManager = new CookieRememberMeManager();
+      rememberMeManager.setCipherKey(Base64.decode("4AvVhmFLUs0KTA3Kprsdag=="));
+      rememberMeManager.setCookie(rememberMeCookie);
+      return rememberMeManager;
   }
 }

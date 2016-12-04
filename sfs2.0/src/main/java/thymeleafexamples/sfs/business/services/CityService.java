@@ -1,6 +1,7 @@
  package thymeleafexamples.sfs.business.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import thymeleafexamples.sfs.business.entities.*;
 import thymeleafexamples.sfs.business.dao.CityDao;

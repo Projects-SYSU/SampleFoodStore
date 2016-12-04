@@ -28,7 +28,7 @@ public class SigninController {
         super();
     }
 
-    @RequestMapping(path = {"/", "/signin"}, method = RequestMethod.GET)
+    @RequestMapping(path = {"/signin"}, method = RequestMethod.GET)
     public String showSignin() {
         return "signin";
     }

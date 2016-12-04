@@ -28,7 +28,7 @@ public class HomeController {
     	return this.cityService.findAll();
     }
 
-    @RequestMapping({"/index"})
+    @RequestMapping({"/", "/index"})
     public String showHome(final City c) {
         return "index";
     }

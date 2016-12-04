@@ -1,6 +1,8 @@
 package thymeleafexamples.sfs.application;
 
 import org.springframework.beans.BeansException;
+import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.cache.jcache.JCacheCacheManager;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Bean;
@@ -19,6 +21,13 @@ import org.thymeleaf.spring4.SpringTemplateEngine;
 import org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 import org.thymeleaf.templatemode.TemplateMode;
+
+import javax.cache.CacheManager;
+import javax.cache.Caching;
+import javax.cache.configuration.MutableConfiguration;
+import javax.cache.expiry.CreatedExpiryPolicy;
+import javax.cache.expiry.Duration;
+import javax.cache.spi.CachingProvider;
 
 @Configuration
 @EnableWebMvc
