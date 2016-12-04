@@ -4,4 +4,4 @@
 
 UML
 
-![image](https://raw.githubusercontent.com/DistributedComputingProject/SampleFoodStore/master/uml/models.png)
+![image](https://raw.githubusercontent.com/DistributedComputingProject/SampleFoodStore/master/uml/models.JPG)
