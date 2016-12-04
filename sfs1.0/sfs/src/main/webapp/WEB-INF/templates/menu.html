@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Menu</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+    <h1>Menu</h1>
+    <form th:action="@{/menu(cityId=${city.id})}" method="post">
+        <ul th:each="cuisine : ${cuisines}">
+            <p>
+                <input type="text" name="cuisineName" th:value="${cuisine.cuisineName}" readonly="true">
+                <a th:href="@{/cuisine_detail(cuisineName=${cuisine.cuisineName})}">Detail</a>
+            </p>
+
+            <span>Amount</span>
+            <input type="text" name="amount"/>
+        </ul>
+
+        <input type="submit">
+    </form>
+
+
+
+<!-- 
+        <div>
+            <img src="../../images/hamburger.jpg"/>
+            <a href="cuisine_detail/Hamburger.html">Hamburger</a>
+        </div>
+        
+        <div>
+            <img src="../../images/salad.jpg"/>
+            <a href="cuisine_detail/Salad.html">Salad</a>
+        </div>
+
+        <div>
+            <img src="../../images/noodles.jpg"/>
+            <a href="cuisine_detail/noodles.html">noodles</a>
+        </div> -->
+</body>
+</html>

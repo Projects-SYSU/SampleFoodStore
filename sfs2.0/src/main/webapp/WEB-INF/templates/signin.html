@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Signin</title>
+</head>
+<body>
+<header id="header" class="">
+    <nav class="navbar navbar-inverse" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <img src="images/stsmlogo.png" alt="" height="60px">
+            </div>
+            <div>
+                <a class="navbar-brand" th:href="@{/index}">Sample Food Store</a>
+            </div>
+        </div>
+    </nav>
+</header><!-- /header -->
+
+<h1 style="text-align:center">Sign in</h1>
+
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-12 col-md-offset-4">
+            <form th:action="@{/signin}" method="post" class="form-horizontal" role="form">
+                <div class="form-group">
+                    <div class="col-sm-4">
+                        <label for="username">Username</label>
+                        <input id="username" type="text" name="signInUsername" class="form-control"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-4">
+                        <label for="password">Password</label>
+                        <input id="password" type="password" name="signInPassword" class="form-control"/>
+                    </div>
+                </div>
+
+                <div>
+                    <input type="submit" value="Sign in" class="btn btn-success"/>
+                    <a th:href="@{/signup}"> Sign up</a>
+                </div>
+            </form>
+            <p th:text="${msg}"></p>
+        </div>
+    </div>
+</div>
+
+</body>
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</html>

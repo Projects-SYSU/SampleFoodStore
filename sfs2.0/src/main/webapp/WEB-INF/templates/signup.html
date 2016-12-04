@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Signup</title>
+</head>
+<body>
+<header id="header" class="">
+    <nav class="navbar navbar-inverse" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <img src="images/stsmlogo.png" alt="" height="60px">
+            </div>
+            <div>
+                <a class="navbar-brand" th:href="@{/index}">Sample Food Store</a>
+            </div>
+        </div>
+    </nav>
+</header><!-- /header -->
+
+<h1 style="text-align:center">Sign up</h1>
+
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-12 col-md-offset-4">
+            <form th:action="@{/signup}" method="post" class="form-horizontal" role="form">
+                <div class="form-group">
+                    <div class="col-sm-4">
+                        <label for="username">Username</label>
+                        <input id="username" type="text" name="signUpUsername" class="form-control"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-4">
+                        <label for="password">Password</label>
+                        <input id="password" type="password" name="signUpPassword" class="form-control"/>
+                    </div>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="isVip" value="true"> VIP
+                        <input type="hidden" name="isVip" value="false">
+                    </label>
+                </div>
+
+                <br />
+
+                <div>
+                    <input type="submit" value="Sign up" class="btn btn-success"/>
+                    <a th:href="@{/signin}">Sign in</a>
+                </div>
+            </form>
+            <p th:text="${msg}"></p>
+        </div>
+    </div>
+</div>
+
+</body>
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</html>

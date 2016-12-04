@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Order</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+
+<body>
+	<ul th:each="orderline : ${orderlines}">
+		<li>
+			<span th:text="${orderline.cuisineName}"></span>
+			<span th:text="${orderline.amount}"></span>
+		</li>
+	</ul>
+    <p>Order successfully! return to
+        <a href="../index">Home</a>
+    </p>
+</body>
+</html>

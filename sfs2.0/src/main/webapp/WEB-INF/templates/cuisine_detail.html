@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Cuisine detail</title>
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/cuisine_detail.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+
+<body>
+
+    <header id="header" class="">
+        <nav class="navbar navbar-inverse" role="navigation">
+            <div class="container-fluid">
+            <div class="navbar-header">
+                <img src="images/stsmlogo.png" alt="" height="60px">
+            </div>
+            <div>
+                <a class="navbar-brand" th:href="@{/index}">Sample Food Store</a>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a th:href="@{/menu(cityId=${city.id})}">Menu</a></li>
+                    <li><a th:href="@{/signout}">Sign out</a></li>
+                </ul>
+            </div>
+            </div>
+        </nav>
+    </header><!-- /header -->
+
+
+<div class="container" >
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<div class="jumbotron" id ="cuisine">
+				<div class="container" >
+			        <h3>Cuisine detail</h3>
+			        <table class="table">
+						<thead>
+							<tr>
+								<th>Cuisine name</th>
+								<th>Description</th>
+								<th>Price</th>
+								<th>Discount</th>
+								<th>Image</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="success">
+								<td th:text="${cuisine.name}">a</td>
+								<td th:text="${cuisine.description}">b</td>
+								<td th:text="${cuisine.price}">c</td>
+								<td th:text="${cuisine.discount}">d</td>
+                                <td><img th:src="@{'images/' + ${cuisine.imageName}}" width="200px" height="200px"/> </td>
+							</tr>
+						</tbody>
+					</table>
+			    </div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<footer>
+    <div class="footer-disclaimer">
+            <div class="container">
+                <div class="text-center"></div>
+                <div class="text-center text-ucase">2016 MD | USA</div>
+                <div class="text-center text-ucase">Simple&ldquo;Love&rdquo;Food。</div>
+            </div>
+        </div>
+</footer>
+
+</body>
+
+
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</html>
