@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Cuisine detail</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+
+<body>
+	<h1>Cuisine detail</h1>
+	<table>
+		<tr>
+			<th>Cuisine name</th>
+			<th>Description</th>
+			<th>Price</th>
+			<th>Discount</th>
+			<th>Image</th>
+		</tr>
+		<tr>
+			<td th:text="${cuisine.cuisineName}">a</td>
+			<td th:text="${cuisine.description}">b</td>
+			<td th:text="${cuisine.price}">c</td>
+			<td th:text="${cuisine.discount}">d</td>
+			<!-- <td><img th:src="@{${cuisine.cuisineName} + '.jpg'}"></td> -->
+		</tr>
+	</table>
+</body>
+</html>

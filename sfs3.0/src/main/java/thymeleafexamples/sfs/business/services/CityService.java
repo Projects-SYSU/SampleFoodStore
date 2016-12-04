@@ -27,29 +27,50 @@ public class CityService {
     }
 
     private void init() {
-        if (isInit)
-            return;
+        if (isInit) return;
         isInit = true;
+
+        //  city shanghai
         City shanghai = new City("shanghai");
         cityDao.create(shanghai);
 
         Cuisine hamburger = new Cuisine("hamburger");
         hamburger.setImageName("hamburger.jpg");
-        hamburger.setPrice(3.0);
-        hamburger.setDiscount(0.1);
-        hamburger.setDescription("blablabla");
+        hamburger.setPrice(10.0);
+        hamburger.setDiscount(0.9);
+        hamburger.setDescription("this is a hamburger");
         shanghai.getCuisines().add(hamburger);
 
         Cuisine noodle = new Cuisine("noodles");
-        noodle.setPrice(10.0);
-        noodle.setDiscount(0.9);
-        noodle.setDescription("hahahha");
+        noodle.setPrice(16.0);
+        noodle.setDiscount(0.7);
+        noodle.setDescription("the is noodles");
         noodle.setImageName("noodles.jpg");
         shanghai.getCuisines().add(noodle);
 
 
+        // city guangzhou
+        City guangzhou = new City("guangzhou");
+        cityDao.create(guangzhou);
+
+        Cuisine salad = new Cuisine("salad");
+        salad.setImageName("salad.jpg");
+        salad.setPrice(20.0);
+        salad.setDiscount(0.8);
+        salad.setDescription("this is salad");
+        guangzhou.getCuisines().add(salad);
+
+        Cuisine noodle2 = new Cuisine("noodles");
+        noodle2.setPrice(20.0);
+        noodle2.setDiscount(0.5);
+        noodle2.setDescription("this is noodles");
+        noodle2.setImageName("noodles.jpg");
+        guangzhou.getCuisines().add(noodle2);
+
         cuisineDao.create(hamburger);
         cuisineDao.create(noodle);
+        cuisineDao.create(salad);
+        cuisineDao.create(noodle2);
     }
 
     public List<City> findAll() {
